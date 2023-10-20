@@ -2,33 +2,88 @@
 <html>
 <head>
     <title>Predicción de Precio de Alquiler</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        img {
+            display: block;
+            margin: 20px auto;
+        }
+
+        p {
+            font-size: 18px;
+            color: #007BFF;
+        }
+    </style>
 </head>
 <body>
     <h1>Predicción de Precio de Alquiler</h1>
     <form method="post">
         <label for="area">Área (m²):</label>
-        <input type="text" name="area" required><br>
+        <input type="text" name="area" required>
         
         <label for="rooms">Número de Habitaciones:</label>
-        <input type="text" name="rooms" required><br>
+        <input type="text" name="rooms" required>
         
         <label for="bathroom">Número de Baños:</label>
-        <input type="text" name="bathroom" required><br>
+        <input type="text" name="bathroom" required>
         
         <label for="parking_spaces">Número de Plazas de Aparcamiento:</label>
-        <input type="text" name="parking_spaces" required><br>
+        <input type="text" name="parking_spaces" required>
         
         <label for="animal">¿Se permiten animales?</label>
         <select name="animal" required>
             <option value="0">No</option>
             <option value="1">Sí</option>
-        </select><br>
+        </select>
         
         <label for="furniture">¿Está amueblado?</label>
         <select name="furniture" required>
             <option value="0">No</option>
             <option value="1">Sí</option>
-        </select><br>
+        </select>
         
         <input type="submit" value="Calcular Predicción">
     </form>
@@ -36,5 +91,10 @@
     {% if prediction %}
     <p>Precio de Alquiler Estimado: R$ {{ prediction }}</p>
     {% endif %}
+
+    {% if feature_importance_plot %}
+    <img src="data:image/png;base64,{{ feature_importance_plot }}" alt="Gráfico de Importancia de Características">
+    {% endif %}
+
 </body>
 </html>

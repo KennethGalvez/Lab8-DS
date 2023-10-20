@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predicción de Precio de Alquiler</title>
+</head>
+<body>
+    <h1>Predicción de Precio de Alquiler</h1>
+    <form method="post">
+        <label for="area">Área (m²):</label>
+        <input type="text" name="area" required><br>
+        
+        <label for="rooms">Número de Habitaciones:</label>
+        <input type="text" name="rooms" required><br>
+        
+        <label for="bathroom">Número de Baños:</label>
+        <input type="text" name="bathroom" required><br>
+        
+        <label for="parking_spaces">Número de Plazas de Aparcamiento:</label>
+        <input type="text" name="parking_spaces" required><br>
+        
+        <label for="animal">¿Se permiten animales?</label>
+        <select name="animal" required>
+            <option value="0">No</option>
+            <option value="1">Sí</option>
+        </select><br>
+        
+        <label for="furniture">¿Está amueblado?</label>
+        <select name="furniture" required>
+            <option value="0">No</option>
+            <option value="1">Sí</option>
+        </select><br>
+        
+        <input type="submit" value="Calcular Predicción">
+    </form>
+    
+    {% if prediction %}
+    <p>Precio de Alquiler Estimado: R$ {{ prediction }}</p>
+    {% endif %}
+</body>
+</html>
